@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Arsip Dokumen Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Arsip Dokumen Digital</h1>
+            <p>Scan atau upload dokumen untuk diarsipkan berdasarkan kategori</p>
+        </header>
+
+        <main>
+            <!-- Form Input Data -->
+            <section class="controls-section">
+                <div class="input-group">
+                    <label for="doc-category">Kategori Dokumen:</label>
+                    <select id="doc-category">
+                        <!-- Opsi kategori akan dimuat oleh JavaScript -->
+                    </select>
+                    
+                    <!-- Fitur Tambah Kategori Baru -->
+                    <div class="add-category-group">
+                        <input type="text" id="new-category-name" placeholder="Buat kategori baru...">
+                        <button id="btn-add-category" class="btn success">Tambah</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="doc-title">Nama Dokumen:</label>
+                    <input type="text" id="doc-title" placeholder="Misal: KTP Budi / Tagihan Listrik Bulan Ini">
+                </div>
+
+            <!-- Fitur Scanner / Kamera -->
+            <section class="scanner-section">
+                <h2>Scanner Kamera Langsung</h2>
+                <div class="video-container">
+                    <video id="camera-stream" autoplay playsinline></video>
+                </div>
+                <div class="button-group">
+                    <button id="btn-start-camera" class="btn primary">Buka Kamera</button>
+                    <button id="btn-capture" class="btn success" disabled>Ambil Gambar</button>
+                    <button id="btn-stop-camera" class="btn danger" disabled>Tutup Kamera</button>
+                </div>
+                <!-- Canvas tersembunyi untuk memproses gambar dari video -->
+                <canvas id="canvas" hidden></canvas>
+            </section>
+
+            <div class="archive-header">
+                    <h2>Daftar Arsip Anda</h2>
+                    <select id="filter-category">
+                        <!-- Opsi filter akan dimuat oleh JavaScript -->
+                    </select>
+                </div>
+
+            <hr>
+
+            <!-- Daftar Arsip -->
+            <section class="archive-section">
+                <div class="archive-header">
+                    <h2>Daftar Arsip Anda</h2>
+                    <select id="filter-category">
+                        <option value="Semua">Semua Kategori</option>
+                        <option value="KTP">KTP / Identitas</option>
+                        <option value="Surat">Surat Resmi</option>
+                        <option value="Invoice">Invoice / Tagihan</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+                <div id="archive-gallery" class="gallery">
+                    <!-- Data dokumen akan dimuat di sini oleh JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
